@@ -1,0 +1,336 @@
+// Group Messages — forum styles.
+
+.DialogsDropdown-newGroup {
+  padding: 8px 8px 4px;
+  border-bottom: 1px solid var(--control-bg, rgba(0, 0, 0, 0.05));
+}
+
+.GroupComposeModal {
+  .GroupComposeModal-recipients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .GroupComposeModal-recipient {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 6px 3px 4px;
+    border-radius: 999px;
+    background: var(--control-bg, rgba(0, 0, 0, 0.06));
+    font-size: 13px;
+
+    .Avatar {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .GroupComposeModal-nameRow {
+    display: flex;
+    gap: 8px;
+  }
+
+  .GroupComposeModal-icon {
+    flex: 0 0 56px;
+    text-align: center;
+  }
+}
+
+// A circular group glyph reused in the list, the header, and modals.
+.GroupMessages-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  background: var(--control-bg, rgba(0, 0, 0, 0.08));
+  color: var(--muted-color);
+  font-size: 18px;
+  line-height: 1;
+
+  .GroupMessages-icon-emoji {
+    font-size: 1.1em;
+  }
+}
+
+.DialogListItem--group .DialogListItem-avatar {
+  width: 44px;
+  height: 44px;
+
+  .GroupMessages-icon {
+    font-size: 20px;
+  }
+}
+
+.DialogSection-header--group {
+  .GroupMessages-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    font-size: 22px;
+  }
+}
+
+.GroupManageModal {
+  .GroupManageModal-nameRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    .GroupManageModal-icon {
+      flex: 0 0 56px;
+      text-align: center;
+    }
+  }
+
+  .GroupManageModal-participants {
+    margin: 6px 0 10px;
+    border: 1px solid var(--control-bg, rgba(0, 0, 0, 0.08));
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .GroupManageModal-participant {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+
+    & + .GroupManageModal-participant {
+      border-top: 1px solid var(--control-bg, rgba(0, 0, 0, 0.05));
+    }
+
+    .Avatar {
+      width: 28px;
+      height: 28px;
+    }
+
+    .GroupManageModal-participant-name {
+      font-weight: 600;
+    }
+
+    .GroupManageModal-participant-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 2px;
+    }
+  }
+
+  .GroupManageModal-role {
+    font-size: 12px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: var(--control-bg, rgba(0, 0, 0, 0.08));
+    color: var(--muted-color);
+
+    &.GroupManageModal-role--owner {
+      background: var(--primary-color);
+      color: #fff;
+    }
+
+    &.GroupManageModal-role--moderator {
+      background: var(--secondary-color, #557);
+      color: #fff;
+    }
+  }
+
+  .GroupManageModal-add {
+    margin-top: 4px;
+  }
+}
+
+// Reactions bar under a dialog message.
+.GroupReactions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+
+  .GroupReactions-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 8px;
+    border: 1px solid var(--control-bg, rgba(0, 0, 0, 0.08));
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: background 0.1s, border-color 0.1s;
+
+    &:hover {
+      background: var(--control-bg, rgba(0, 0, 0, 0.05));
+    }
+
+    &.GroupReactions-pill--mine {
+      border-color: var(--primary-color);
+      background: fade(@primary-color, 12%);
+    }
+
+    .GroupReactions-count {
+      color: var(--muted-color);
+      font-size: 12px;
+    }
+  }
+
+  .GroupReactions-add {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .GroupReactions-addButton {
+    border: none;
+    background: transparent;
+    color: var(--muted-color);
+    padding: 2px 6px;
+    border-radius: 999px;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--control-bg, rgba(0, 0, 0, 0.05));
+      color: var(--text-color);
+    }
+  }
+
+  // The picker is a Flarum Dropdown-menu (hidden via display:none until the
+  // dropdown is .open). Only override its layout WHEN open — otherwise an
+  // unconditional `display` would keep the closed menu permanently visible.
+  .GroupReactions-picker {
+    min-width: 0;
+    padding: 4px;
+  }
+
+  // Open the palette upward, above the button — opening downward gets clipped
+  // by the message card's bottom edge / the next message.
+  .GroupReactions-add.open > .GroupReactions-picker {
+    display: flex;
+    gap: 2px;
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 4px;
+    z-index: 20;
+  }
+
+  .GroupReactions-pickerEmoji {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    padding: 3px 5px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+
+    &:hover {
+      background: var(--control-bg, rgba(0, 0, 0, 0.08));
+    }
+  }
+}
+
+// Inline "in reply to …" reference shown above a replying message.
+.GroupReplyReference {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  padding: 3px 8px;
+  border-left: 2px solid var(--control-bg, rgba(0, 0, 0, 0.15));
+  font-size: 13px;
+  color: var(--muted-color);
+
+  .GroupReplyReference-body {
+    display: inline-flex;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .GroupReplyReference-author {
+    font-weight: 600;
+    color: var(--text-color);
+    flex: 0 0 auto;
+  }
+
+  .GroupReplyReference-snippet {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .GroupReplyReference-body--missing {
+    font-style: italic;
+  }
+}
+
+// "Replying to …" indicator in the message composer header.
+.GroupReplyingTo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  border-radius: var(--border-radius);
+  background: var(--control-bg, rgba(0, 0, 0, 0.05));
+  font-size: 13px;
+
+  .GroupReplyingTo-text {
+    display: inline-flex;
+    gap: 6px;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .GroupReplyingTo-snippet {
+    color: var(--muted-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .GroupReplyingTo-cancel {
+    margin-left: auto;
+  }
+}
+
+// Keep the reactions bar and the reply button on one row in the message footer.
+.Message .Post-footer > ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+
+  > li {
+    margin: 0;
+  }
+}
+
+.Message-reply,
+.Message-quote {
+  color: var(--muted-color);
+  padding: 1px 6px;
+
+  &:hover {
+    color: var(--link-color);
+  }
+}
+
+// Read-receipt avatars on a group's last message.
+.GroupSeenBy {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+
+  .Avatar {
+    width: 18px;
+    height: 18px;
+    margin-left: -5px;
+    border: 1px solid var(--body-bg);
+    box-shadow: 0 0 0 1px var(--control-bg, rgba(0, 0, 0, 0.1));
+  }
+}

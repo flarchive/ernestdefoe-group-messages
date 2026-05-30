@@ -1,0 +1,52 @@
+{
+  "name": "ernestdefoe/group-messages",
+  "description": "Group conversations for Flarum — multi-participant private messages with names, icons, roles, participant management, and read receipts, built on flarum/messages.",
+  "keywords": ["flarum", "flarum-extension", "messages", "group", "chat", "private-messages"],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ernestdefoe",
+      "email": "ernestdefoe@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/ernestdefoe/group-messages",
+  "support": {
+    "issues": "https://github.com/ernestdefoe/group-messages/issues",
+    "source": "https://github.com/ernestdefoe/group-messages"
+  },
+  "require": {
+    "php": "^8.2",
+    "flarum/core": "^2.0",
+    "flarum/messages": "^2.0"
+  },
+  "minimum-stability": "beta",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Ernestdefoe\\GroupMessages\\": "src/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Group Messages",
+      "category": "feature",
+      "icon": {
+        "name": "fas fa-users",
+        "backgroundColor": "#586bd8",
+        "color": "#ffffff"
+      },
+      "optional-dependencies": [
+        "flarum/messages"
+      ]
+    },
+    "flarum-cli": {
+      "modules": {
+        "githubActions": true
+      }
+    }
+  },
+  "scripts": {
+    "test": "echo 'no tests yet'"
+  }
+}
