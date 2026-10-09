@@ -2,13 +2,17 @@
 
 > **Read-only archive of released versions of ernestdefoe/group-messages.** Not for installation: use [Packagist](https://packagist.org/packages/ernestdefoe/group-messages) or the [upstream repository](https://github.com/ernestdefoe/group-messages).
 
-**0** versions archived · Latest: [`2.0.4`](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.4) · License: `MIT` · Flarum: `^2.0`
+**5** versions archived · Latest: [`2.0.4`](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.4) · License: `MIT` · Flarum: `^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| — | — | — | — |
+| `2.0.0` | 2026-05-30 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.0) |
+| `2.0.1` | 2026-05-30 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.1) |
+| `2.0.2` | 2026-06-08 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.2) |
+| `2.0.3` | 2026-09-13 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.3) |
+| `2.0.4` | 2026-10-08 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-group-messages/tree/archive/v2.0.4) |
 
 Catalog entry: [packages/ernestdefoe-group-messages.json](https://github.com/flarchive/archive-index/blob/main/packages/ernestdefoe-group-messages.json)
 
