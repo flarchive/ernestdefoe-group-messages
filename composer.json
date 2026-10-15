@@ -1,0 +1,71 @@
+{
+  "name": "ernestdefoe/group-messages",
+  "description": "Group conversations for Flarum — multi-participant private messages with names, icons, roles, participant management, and read receipts, built on flarum/messages.",
+  "keywords": ["flarum", "flarum-extension", "messages", "group", "chat", "private-messages"],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "ernestdefoe",
+      "email": "ernestdefoe@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/ernestdefoe/group-messages",
+  "support": {
+    "forum": "https://discuss.flarum.org/d/39346-group-messages",
+    "issues": "https://github.com/ernestdefoe/group-messages/issues",
+    "source": "https://github.com/ernestdefoe/group-messages"
+  },
+  "require": {
+    "php": "^8.3",
+    "flarum/core": "^2.0",
+    "flarum/messages": "^2.0"
+  },
+  "minimum-stability": "beta",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Ernestdefoe\\GroupMessages\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ernestdefoe\\GroupMessages\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Group Messages",
+      "category": "feature",
+      "icon": {
+        "name": "fas fa-users",
+        "backgroundColor": "#586bd8",
+        "color": "#ffffff"
+      }
+    },
+    "flarum-cli": {
+      "modules": {
+        "githubActions": true
+      }
+    }
+  },
+  "scripts": {
+    "test": [
+      "@test:integration"
+    ],
+    "test:integration": "phpunit -c tests/phpunit.integration.xml",
+    "test:setup": "@php tests/integration/setup.php",
+    "analyse:phpstan": "phpstan analyse"
+  },
+  "require-dev": {
+    "flarum/phpstan": "^2.0",
+    "flarum/testing": "^2.0",
+    "flarum/tags": "^2.0"
+  },
+  "scripts-descriptions": {
+    "test": "Runs all tests.",
+    "test:integration": "Runs all integration tests.",
+    "test:setup": "Sets up a database for use with integration tests. Execute this only once.",
+    "analyse:phpstan": "Run static analysis"
+  }
+}
