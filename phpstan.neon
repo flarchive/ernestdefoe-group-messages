@@ -1,0 +1,19 @@
+includes:
+    - vendor/flarum/phpstan/extension.neon
+
+parameters:
+    # One process: flarum/phpstan's bootstrap installs a test forum the first
+    # time it runs, and parallel workers each start that install at once on a
+    # fresh checkout (CI), failing with Install\StepFailed.
+    parallel:
+        maximumNumberOfProcesses: 1
+    level: 6
+    paths:
+        - extend.php
+        - src
+    databaseMigrationsPath:
+        - migrations
+    # Flarum 2.1-only classes, used behind class_exists() / an event that 2.0
+    # never fires. They don't exist in the 2.0 packages this is analysed against.
+    ignoreErrors:
+        - '#Flarum\\Messages\\(Dialog\\Event\\UserLeft|Command\\LeaveDialog)#'
